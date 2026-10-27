@@ -1,1 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <!-- Header -->
+  <header>
+    <h1>📚 Library Management System</h1>
+    <p>Task 02 - Simple & Functional Project Version</p>
+  </header>
+
+  <!-- Container -->
+  <div class="container">
+
+    <!-- TOP SECTION: Add Book & Borrow Book Forms -->
+    <div class="grid">
+      
+      <!-- Feature 1: Add Books -->
+      <div class="card">
+        <h2>➕ Add New Book</h2>
+        <form id="add-book-form">
+          <div class="form-group">
+            <label for="book-title">Book Title</label>
+            <input type="text" id="book-title" placeholder="e.g. Great Expectations" required>
+          </div>
+          <div class="form-group">
+            <label for="book-author">Author</label>
+            <input type="text" id="book-author" placeholder="e.g. Charles Dickens" required>
+          </div>
+          <div class="form-group">
+            <label for="book-isbn">ISBN / ID</label>
+            <input type="text" id="book-isbn" placeholder="e.g. 978-0141439563" required>
+          </div>
+          <div class="form-group">
+            <label for="book-copies">Copies Available</label>
+            <input type="number" id="book-copies" min="1" value="1" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Book</button>
+        </form>
+      </div>
+
+      <!-- Feature 2: Borrow Books -->
+      <div class="card">
+        <h2>📖 Borrow a Book</h2>
+        <form id="borrow-book-form">
+          <div class="form-group">
+            <label for="select-book">Select Book</label>
+            <select id="select-book" required>
+              <option value="">-- Choose an Available Book --</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="borrower-name">Borrower Name</label>
+            <input type="text" id="borrower-name" placeholder="e.g. John Doe" required>
+          </div>
+          <div class="form-group">
+            <label for="due-date">Due Date</label>
+            <input type="date" id="due-date" required>
+          </div>
+          <button type="submit" class="btn btn-success">Issue / Borrow</button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM SECTION: Catalog & Active Lending Tables -->
+    <div class="grid" style="margin-top: 25px;">
+
+      <!-- Feature 3: Catalog & Remove Books -->
+      <div class="card card-full">
+        <div class="card-header">
+          <h2>📚 Book Catalog & Stock</h2>
+          <input type="text" id="search-input" placeholder="Search by title or author...">
+        </div>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Available Copies</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="books-list">
+              <!-- Dynamic Rows -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Feature 4: Book Lending (Active Loans & Returns) -->
+      <div class="card card-full">
+        <h2>📋 Book Lending & Return Tracking</h2>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Book Title</th>
+                <th>Borrower</th>
+                <th>Issue Date</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="lending-list">
+              <!-- Dynamic Rows -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
