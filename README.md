@@ -145,7 +145,15 @@ The project will be updated incrementally as new features are developed, tested,
 4. Enter a task in the input field.
 5. Click the Add Task button to add the task to the list.
 
+## Current Development Status
+
+Initial version completed.
+
+
 ## Version
+
+ Sangee-thinkfree-patch-1
+v0.1.1 – Initial project setup.
 
 v0.1 – Initial project setup.
 ## Current Development Status
@@ -153,3 +161,4 @@ v0.1 – Initial project setup.
 Initial version completed.
 
 Version: 0.1.0
+ main
