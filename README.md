@@ -152,4 +152,13 @@ Initial version completed.
 
 ## Version
 
+ Sangee-thinkfree-patch-1
 v0.1.1 – Initial project setup.
+
+v0.1 – Initial project setup.
+## Current Development Status
+
+Initial version completed.
+
+Version: 0.1.0
+ main
