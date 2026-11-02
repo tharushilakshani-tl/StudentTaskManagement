@@ -148,3 +148,8 @@ The project will be updated incrementally as new features are developed, tested,
 ## Version
 
 v0.1 – Initial project setup.
+## Current Development Status
+
+Initial version completed.
+
+Version: 0.1.0
