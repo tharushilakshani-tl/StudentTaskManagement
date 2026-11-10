@@ -192,3 +192,80 @@ function updateAllViews() {
   renderLendingList();
   populateBookDropdown();
 }
+
+//seaechbox script codes
+
+// script.js
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    let debounceTimer;
+
+    searchInput.addEventListener('input', () => {
+        clearTimeout(debounceTimer);
+        const query = searchInput.value.trim();
+
+        if (query.length === 0) {
+            searchResults.innerHTML = '';
+            return;
+        }
+
+        // Wait 300ms after keyup before sending fetch request
+        debounceTimer = setTimeout(() => {
+            fetchBooks(query);
+        }, 300);
+    });
+
+    function fetchBooks(query) {
+        fetch(`search.php?query=${encodeURIComponent(query)}`)
+            .then(response => response.json())
+            .then(data => {
+                displayResults(data);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                searchResults.innerHTML = '<p class="error">An error occurred while searching.</p>';
+            });
+    }
+
+    function displayResults(books) {
+        searchResults.innerHTML = '';
+
+        if (books.length === 0) {
+            searchResults.innerHTML = '<p class="no-results">No books found matching your query.</p>';
+            return;
+        }
+
+        const list = document.createElement('ul');
+        list.className = 'book-list';
+
+        books.forEach(book => {
+            const item = document.createElement('li');
+            item.className = 'book-item';
+            item.innerHTML = `
+                <div class="book-info">
+                    <strong>${escapeHtml(book.title)}</strong>
+                    <span>by ${escapeHtml(book.author)}</span>
+                    <small>Category: ${escapeHtml(book.category || 'General')}</small>
+                </div>
+                <span class="status ${book.available ? 'available' : 'borrowed'}">
+                    ${book.available ? 'Available' : 'Borrowed'}
+                </span>
+            `;
+            list.appendChild(item);
+        });
+
+        searchResults.appendChild(list);
+    }
+
+    // Utility function to prevent XSS attacks
+    function escapeHtml(str) {
+        return str.replace(/[&<>"']/g, (m) => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+        }[m]));
+    }
+});

@@ -197,3 +197,84 @@ tr:hover {
   background-color: #dcfce7;
   color: #15803d;
 }
+
+/* create style for searchbox */
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    padding: 40px;
+}
+
+.search-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+#searchInput {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.results-container {
+    margin-top: 20px;
+}
+
+.book-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.book-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.book-item:last-child {
+    border-bottom: none;
+}
+
+.book-info strong {
+    display: block;
+    font-size: 16px;
+}
+
+.book-info span {
+    color: #666;
+    font-size: 14px;
+}
+
+.book-info small {
+    display: block;
+    color: #999;
+    font-size: 12px;
+}
+
+.status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status.available {
+    background-color: #e6f4ea;
+    color: #137333;
+}
+
+.status.borrowed {
+    background-color: #fce8e6;
+    color: #c5221f;
+}
